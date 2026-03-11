@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+<body>
+  <h1>geometeo</h1>
+  
+  <div class="search">
+    <label for="city-input"></label>
+    <input id="city-input" type="text">
+    <button>Поиск</button>
+  </div>
+
+<main>
+  <div class="weather-card">
+    <div id="temp" class="temp">Температура</div>
+    <div id="precipitation" class="precipitation">Осадки</div>
+    <div id="wind" class="wind">Ветер</div>
+    <div id="icon" class="icon">Иконка</div>
+  </div>
+</main>
+
+  <div  id="ai-response" class="ai">
+    Подсказка ИИ:
+  </div>
+
+  <div class="loader">
+
+  </div>
+
+<script src="app.js"></script>
+<script src="ai.js"></script>
+</body>
+</html>
