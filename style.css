@@ -1,65 +1,265 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   outline: none;
   border: none;
+  overflow-x: hidden;
 }
 
+
 h1 {
-  text-align: center;
-  font-size: 70px;
-  color: #3498db;
-  margin: 25px 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  font-size: 100px;
+  font-weight: 800;
+  letter-spacing: -1px;
+
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+0,eeeeee+100;Grey+Flat */
+  background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
 }
 
 .search {
-  text-align: center}
-
-.search input {
-  box-sizing: border-box;
-  padding: 0 5px;
-  font-size: 20px;
-  height: 34px;
-  width: 50%;
-  border: 2px solid #2c3e50;
-  border-radius: 18px;
-  background-color: white;
-  color: black;
-}
-
-.search input:hover {
-  border-color: #3498db;
-  background-color: #ecf0f1;
-}
-
-.search button {
-  box-sizing: border-box;
-  height: 34px;
-  width: 10%;
-  border: 2px solid #2c3e50;
-  border-radius: 18px;
-  background-color: white;
-  color: black;
-}
-
-.search button:hover {
-  border-color: #3498db;
-  background-color: #ecf0f1;
-}
-
-.weather-card {
-  display: flex;
-  margin: 50px 30px 10px 30px ;
-  justify-content: space-between;
-  font-size: 25px;
-}
-
-.ai {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 200px;
-  font-size: 25px;
+  gap: 12px;
+  margin-bottom: 40px;
 }
 
+.search input {
+  width: 500px;
+  padding: 12px 20px;
+
+  font-size: 16px;
+  border: 2px solid #e0e7ff;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.search input:focus {
+  width: 550px;
+  box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.1);
+}
+
+.search button {
+  padding: 15px 35px;
+
+  color: white;
+  font-weight: 600;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#258dc8+0,258dc8+100;Blue+Flat+%231 */
+  background: linear-gradient(to bottom,  rgba(37,141,200,1) 0%,rgba(37,141,200,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(109,179,242,0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search button:hover {
+  filter: brightness(1.3);
+  box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.4);
+}
+
+.search button:active {
+  transform: translateY(0);
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  min-height: 300px;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.weather-card,
+.ai-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 220px;
+  padding: 30px;
+
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.info-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  gap: 20px;
+}
+
+.weather-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.current-temp {
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.label {
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.value {
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.ai-header {
+  display: flex;
+  font-size: 20px;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#ai-loader {
+  width: 80px;
+  height: 80px;
+}
+
+.ai-section h3 {
+  font-weight: 400;
+  font-size: 30px;
+}
+
+#ai-response {
+  font-size: 30px;
+  font-weight: 700;
+  font-style: italic;
+  margin-top: 50px;
+  text-align: center;
+  color: #333;
+}
+
+.pulse-loader {
+  display: none;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.pulse-loader.active {
+  display: block;
+}
+
+.pulse-loader svg {
+  width: 100%;
+  height: 100%;
+}
+
+.forecast-viewport {
+  width: 100%;
+  padding: 20px;
+}
+
+#forecast-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.forecast-con {
+
+}
+
+.day-card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  min-width: 0;
+
+  text-align: center;
+}
+
+.card-date { font-size: 1.2rem; color: black; margin-bottom: 2px; }
+.card-icon { font-size: 2.8rem; margin-bottom: 2px; }
+.card-temp { font-size: 1.7rem; font-weight: bold; }
+
+@keyframes ai-pulse {
+  0% { transform: scale(0.6); opacity: 0.2; stroke-width: 12; }
+  50% { transform: scale(1.1); opacity: 1; stroke-width: 6; }
+  100% { transform: scale(0.6); opacity: 0.2; stroke-width: 12; }
+}
+
+.pulse-loader svg circle {
+  animation: ai-pulse 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+}
+
+
+@media (max-width: 600px) {
+  .info-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  }
+
+@media (max-width: 1024px) {
+  #forecast-container { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .main-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  #forecast-container { grid-template-columns: repeat(2, 1fr); }
+}
 

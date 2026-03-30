@@ -9,6 +9,13 @@
   >
 </head>
 <body>
+
+  <div class="video-bg">
+    <video autoplay loop muted playsinline>
+      <source src="158384-816637349.mp4" type="video/mp4">
+    </video>
+  </div>
+
   <h1>geometeo</h1>
   
   <div class="search">
@@ -17,22 +24,51 @@
     <button>Поиск</button>
   </div>
 
-<main>
-  <div class="weather-card">
-    <div id="temp" class="temp">Температура</div>
-    <div id="precipitation" class="precipitation">Осадки</div>
-    <div id="wind" class="wind">Ветер</div>
-    <div id="icon" class="icon">Иконка</div>
-  </div>
-</main>
+  <main>
+    <div class="main-layout">
 
-  <div  id="ai-response" class="ai">
-    Подсказка ИИ:
-  </div>
+    <div class="weather-card">
+      <h2 class="current-temp">Текущая погода</h2>
 
-  <div class="loader">
+      <div class="info-row">
+        <div id="temp" class="weather-item">
+          <span class="label">Температура</span>
+          <div id="temp-value" class="value">--°C</div>
+        </div>
 
-  </div>
+        <div id="precipitation" class="weather-item">
+          <span class="label">Осадки</span>
+          <div id="precip-value" class="value">--</div>
+        </div>
+
+        <div id="wind" class="weather-item">
+          <span class="label">Ветер</span>
+          <div id="wind-value" class="value">-- км/ч</div>
+        </div>
+      </div>
+    </div>
+
+      <div class="ai-section">
+        <div class="ai-header">
+          <div id="ai-loader" class="pulse-loader">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="40" stroke="#7c3aed" stroke-width="8" fill="none" />
+              }
+            </svg>
+          </div>
+          <h3>Подсказка ИИ:</h3>
+          <div id="ai-response">Здесь будет ответ...</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+
+    <div class="forecast-viewport">
+    <div class="forecast-con" id="forecast-container">Погода на 14 дней:</div>
+    </div>
+
 
 <script src="app.js"></script>
 </body>
