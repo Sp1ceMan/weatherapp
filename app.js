@@ -139,9 +139,10 @@ async function getWeather() {
 
         dayCard.innerHTML = `
           <div class="card-date">${dayName}, ${dayNum}</div>
+          <div class="card-label">${info.label}</div>
           <div class="card-icon">${info.icon}</div>
           <div class="card-temp">${Math.round(temp)}°</div>
-          <div class="card-label">${info.label}</div>
+         
   `;
 
         tenDays.appendChild(dayCard);
@@ -156,7 +157,7 @@ async function getWeather() {
         label: "Неизвестно",
         icon: "❓"
       };
-      precipitationElement.textContent = `${description.icon} ${description.label}`;
+      precipitationElement.textContent = `${description.label} ${description.icon}`;
 
       getAiAdvice(correctName, dataCurrent);
     }

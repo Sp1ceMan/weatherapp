@@ -87,7 +87,7 @@ h1 {
   justify-content: flex-start;
   width: 100%;
   min-height: 220px;
-  padding: 30px;
+  padding: 15px;
 
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
@@ -251,15 +251,42 @@ h1 {
   }
   }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   #forecast-container { grid-template-columns: repeat(4, 1fr); }
+  .label {
+    font-size: 23px;}
+  .value {
+    font-size: 25px;}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .main-layout { grid-template-columns: 1fr; }
+  #forecast-container { grid-template-columns: repeat(3, 1fr); }
+  .day-card-item {
+    font-size: 30px;
+  }
+  .card-date {
+    font-size: 23px;}
+  .search input{
+    width: 600px;
+    height: 70px;
+    font-size: 25px;
+  }
+  .search button {
+    height: 70px;
+    font-size: 25px;
+  }
+  .value {
+    font-size: 35px;
+  }
+  .label {
+    font-size: 30px;
+  }
+
 }
 
-@media (max-width: 600px) {
-  #forecast-container { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 700px) {
+  .main-layout { grid-template-columns: 1fr; }
+  #forecast-container { grid-template-columns: repeat(1, 1fr); }
 }
 
