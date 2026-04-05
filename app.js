@@ -64,7 +64,7 @@ const OLLAMA_URL = 'https://creator-primary-valuation-well.trycloudflare.com/api
 
 
   try {
-    const responseAi = await fetch("http://localhost:11434/api/generate", {
+    const responseAi = await fetch(OLLAMA_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
