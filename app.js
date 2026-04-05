@@ -51,6 +51,7 @@ const weatherDescriptions = {
   99: {label: "Гроза с крупным градом", icon: "💎⚡"}
 };
 
+const OLLAMA_URL = 'https://creator-primary-valuation-well.trycloudflare.com/api/generate';
 
   async function getAiAdvice(cityName, json) {
   const loader = document.getElementById('ai-loader');
@@ -60,6 +61,7 @@ const weatherDescriptions = {
 
   loader.style.display = 'inline-block';
   aiTextField.textContent = 'ИИ анализирует погоду...';
+
 
   try {
     const responseAi = await fetch("http://localhost:11434/api/generate", {
@@ -170,6 +172,3 @@ searchBtn.addEventListener('click', () => {
   console.log("Кнопка нажата");
   getWeather();
 });
-
-
-
